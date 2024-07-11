@@ -1,5 +1,5 @@
 
-# Recordcurator
+# RecordCurator
 
 This pipeline consists of three somewhat independent but complementary steps:
 * RECORDCLEANER:  takes raw occurrence records and cleans them to standardised format. The main feature here is that we merge duplicate collections, while retaining all the information of the different iso-specimens.
@@ -11,7 +11,7 @@ This pipeline consists of three somewhat independent but complementary steps:
 
 To use recordcurator, clone this repository using
 ``` 
-git clone https://github.com/SJStreiff/recordcurator
+git clone https://github.com/SJRStreiff/RecordCurator
 ```
 
 You need a number of python packages to run these scripts. We recommend to use a conda environment to install the dependencies.
@@ -56,7 +56,7 @@ options:
                         path specifying a location for the output logfile.
 
 
-If it doesn't work, or you would like to chat, feel free to contact serafin.streiff<at>ird.fr
+If you have any questions, or would like to chat, feel free to contact me at serafin.streiff<at>ird.fr
 ```
 
 The *launch.sh* script is formatted in a way, that the output of the **recordcleaner** step is automatically the input for the **coordinate-check** step, the output of which again is automatically the input for the **recordfiler** step.
@@ -155,27 +155,6 @@ NB: It is adviseable to remove any specimens with *s.n.*, as these are not speci
 A small script is provided which automatically up/downloads a master database from a postgres server (y_sql_functions.py).
 
 
-
-## TODO
-
-* Keep readme uptodate with new developments and changes
-* **add overwrite protection in case script is called multiple times**, at least for time intensive steps (removed for debugging!!) --> done as mode='x' for example within pd.to_csv()
-* **DONE**: RETURN interactive input(), removed for scripting...
-* **DONE**: Barcodes error in GBIF input! (issue dealing with "-" within barcode.)
-* **DONE** - implement problem name output and reinsertion, optionally pausing execution
-* **DONE** when do we query POWO/IPNI?? irrelevant in my opinion. We do it before inserting a new bunch of data into the master database. 
-* quantify fast and slow steps and make backup files between, so we can restart at that step (maybe integrate variable to call analysis from step XYZ)
-* **DONE** make distinction between non-spatialvalid and no coordinate data!! then we can revise non-spatialvalid points in QGIS
-* update readme to final versions
-* readme  for expert datasets
-
-
-* **Implement background files**:
-  * **DONE**  indets and similar: before integrating data, check for data previosly set aside because we had no conclusive data...?
-
-  * **DONE**  master distribution database for integration.
-
-
 # Common problems / error sources
 
 Some data sources have aspects that can lead to errors in the pipeline. Usually these can be found by checking the error message
@@ -204,4 +183,5 @@ there.**
 Failure to do so will create problems when
 working with the data. Details and data-source specific modifications necessary to standardise data can be changed in the script *z_functions_a.py*
 
+I hope to add integraion of other databases, including linking e.g., to [Bionomia]{https://bionomia.net/}.
 **more to come**
