@@ -183,5 +183,7 @@ there.**
 Failure to do so will create problems when
 working with the data. Details and data-source specific modifications necessary to standardise data can be changed in the script *z_functions_a.py*
 
-I hope to add integraion of other databases, including linking e.g., to [Bionomia]{https://bionomia.net/}.
+
+I hope to add integration of other databases, including linking e.g., to [Bionomia](https://bionomia.net/), as well as improving the speed and accuracy of these checks.
+
 **more to come**
